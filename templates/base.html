@@ -1,0 +1,72 @@
+{% load staticfiles %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-SHOP</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<nav class="deep-orange darken-2">
+    <div class="container nav-wrapper">
+        <a href="/" class="brand-logo">E-SHOP</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="/">Inicio</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 style="text-align: center">¿Que quieres buscar?</h1>
+    <div class="row">
+        <div class="col s4">
+            
+            <div class="center">
+                <i class="large material-icons" style="color: #EE6E73">add_shopping_cart</i>
+                <p>Busqueda de ofertas</p>
+                <p class="light center">Adquiere las mejores ofertas de los mejores sitios.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            
+            <div class="center">
+                <i class="large material-icons" style="color: orange">euro_symbol</i>
+                <p>Precios regionales</p>
+                <p class="light center">Obten los precios en tu moneda local.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            
+            <div class="center">
+                <i class="large material-icons" style="color: blue">verified_user</i>
+                <p>Seguridad de compras</p>
+                <p class="light center">Sientete seguro al comprar.</p>
+            </div>
+        </div>
+    </div>
+
+	<form action="{% url 'new_search'%}" method="post">
+		{% csrf_token %} 
+		<input type="text" name="search" placeholder="Buscar">
+		 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    		<i class="material-icons right">send</i>
+  		</button>
+	</form>
+
+{% block content %}
+
+{% endblock content %}
+    
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
