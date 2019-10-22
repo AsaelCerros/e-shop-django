@@ -40,9 +40,9 @@ def new_search(request):
 
 		final_postings.append((post_titles, post_url, post_price, post_image_url))
 
-	print(post_titles)
-	print(post_price)
-	print(post_url)
+	# print(post_titles)
+	# print(post_price)
+	# print(post_url)
 	
 
 	stuff_for_frontend = {

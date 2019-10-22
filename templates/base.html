@@ -15,9 +15,9 @@
 <body>
 <nav class="deep-orange darken-2">
     <div class="container nav-wrapper">
-        <a href="/" class="brand-logo">E-SHOP</a>
-        <ul id="nav-mobile" class="right">
-            <li><a href="/">Inicio</a></li>
+        <a href="/" class="waves-effect waves-light brand-logo">E-SHOP</a>
+        <ul id="nav-mobile" class="waves-effect waves-light right">
+            <li><a href="/"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
         </ul>
     </div>
 </nav>
@@ -60,7 +60,13 @@
     		<i class="material-icons right">send</i>
   		</button>
 	</form>
-
+{% if messages %}
+    {% for message in messages %}
+        <div class="card-panel green darken-1">
+            {{ message }}
+        </div>
+    {% endfor %}        
+{% endif %}
 {% block content %}
 
 {% endblock content %}
