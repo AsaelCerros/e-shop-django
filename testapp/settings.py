@@ -126,6 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # Default layout to use with "crispy_forms"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'promo'
 LOGIN_URL = 'login'

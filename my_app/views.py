@@ -12,6 +12,9 @@ BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
 def home(request):
 	return render(request, 'base.html')
 
+def promo(request):
+	return render(request, 'my_app/promo.html')
+
 def new_search(request):
 	search = request.POST.get('search')
 	models.Search.objects.create(search=search)
