@@ -7,4 +7,7 @@
     height: 250px; /* Your height here */
     overflow: hidden;
 }
-
+.nav-wrapper .brand-logo img {
+    height: 64px;
+    width: 104px;
+}

@@ -7,7 +7,7 @@
     <title>E-SHOP</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -15,9 +15,27 @@
 <body>
 <nav class="deep-orange darken-2">
     <div class="container nav-wrapper">
-        <a href="/" class="waves-effect waves-light brand-logo">E-SHOP</a>
+        <a href="/" class="waves-effect waves-light brand-logo"><img src="/static/img/logo.png"></a>
         <ul id="nav-mobile" class="waves-effect waves-light right">
-            <li><a href="/"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
+            <li>
+                <form action="{% url 'new_search'%}" method="post">
+                    {% csrf_token %} 
+                <div class="input-field">                    
+                     <input name="search" type="search" placeholder="Introduce una busqueda"required>
+                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                     <input type="submit" name="action">
+                     <i class="material-icons">close</i>
+                </div>
+            </form>
+            </li>
+            {% if user.is_authenticated %}
+              <li><a href="/"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
+              <li><a href="{% url 'profile' %}"><i class="large material-icons" style="color: black">account_circle</i></a></li>
+              <li><a href="{% url 'logout' %}"><i class="large material-icons" style="color: black">directions_run</i></a></li>
+            {% else %}
+              <li><a href="{% url 'login' %}"><i class="large material-icons" style="color: black">assignment_ind</i></a></li>
+              <li><a href="{% url 'register' %}"><i class="large material-icons" style="color: black">add_circle</i></a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
