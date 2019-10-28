@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'my_app',
+    'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
     'materialize',
     'crispy_forms',

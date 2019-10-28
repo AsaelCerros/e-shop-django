@@ -4,18 +4,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E-SHOP</title>
+    <title>A-SHOP</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
 
 </head>
 <body>
 <nav class="deep-orange darken-2">
     <div class="container nav-wrapper">
-        <a href="{% url 'promo' %}" class="waves-effect waves-light brand-logo"><img src="/static/img/logo.png"></a>
+        <a href="{% url 'promo' %}" class="waves-effect waves-light brand-logo"><img src="/static/img/logo2.png"></a>
         <ul id="nav-mobile" class="waves-effect waves-light right">
             <li>
                 <form action="{% url 'new_search'%}" method="post">
@@ -29,7 +31,7 @@
             </form>
             </li>
             {% if user.is_authenticated %}
-              <li><a href="/"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
+              <li><a href="#" onclick="M.toast({html: 'Product added'})"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
               <li><a href="{% url 'profile' %}"><i class="large material-icons" style="color: black">account_circle</i></a></li>
               <li><a href="{% url 'logout' %}"><i class="large material-icons" style="color: black">directions_run</i></a></li>
             {% else %}
@@ -90,7 +92,5 @@
 {% endblock content %}
     
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

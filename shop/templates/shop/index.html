@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+{% if product_list %}
+ <div class="row">
+        {% for product in product_list %}
+            <div class="col s4 m6 l4">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="{{ product.product_image.url }}">
+                    </div>
+                    <div class="card-content">
+                        <p>{{ product.product_title }}</p>
+                        <p>Precio ${{ product.product_price }}</p>                    
+                    </div>
+                    <div class="card-action">
+                                <form action="{% url 'shop:product-delete' product.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default btn-sm">Delete</button>
+        </form>
+           <form action="{% url 'shop:product-update' product.id  %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default btn-sm">Update</button>
+        </form>
+                    </div>     
+                </div>
+            </div>
+
+{% endfor %}
+    </div>
+ 
+    {% else %}
+    <h1>No product entries found on the database.</h1>
+ 
+ 
+{% endif %}
+     <form action="{% url 'shop:product-entry'  %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button style="position: fixed;bottom: 20;right: 20;"type="submit" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></button>
+        </form>
+{% endblock content %}

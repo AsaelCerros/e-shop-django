@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
+<!-- {% load crispy_forms_tags %} -->
 {% block content %}
       <div class="col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-panel grey lighten-5 z-depth-1">
@@ -15,18 +15,16 @@
             </div>
           </div>
         </div>
+        <div class="input-field">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile Info</legend>
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-            </fieldset>
-            <div class="form-group">
+                {{ u_form.as_p }}
+                {{ p_form.as_p }}
+                </div>
                <button class="btn waves-effect waves-light" type="submit" name="action">Update
                     <i class="material-icons right">send</i>
                 </button>
-            </div>
         </form>
+
       </div>
 {% endblock content %}
