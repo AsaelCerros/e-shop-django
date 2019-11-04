@@ -17,5 +17,11 @@ urlpatterns = [
  
     # shop/product/(?P<pk>[0-9]+)/delete
     url(r'^album/(?P<pk>[0-9]+)/delete$', views.ProductDelete.as_view(), name='product-delete'),
+    # add to cart shop/product/(?P<pk>[0-9]+)/add
+    url(r'^add/(?P<product_id>\w+)/(?P<quantity>\d{1,10})$', views.add_to_cart, name='add_to_cart'),
+    #get cart items
+    url(r'^cart/$', views.get_cart, name='get_cart'),
+    #remove from cart
+    url(r'^remove/(?P<product_id>\w+)/$', views.remove_from_cart, name='remove_from_cart'),
  
 ]

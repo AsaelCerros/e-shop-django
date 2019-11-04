@@ -31,7 +31,8 @@
             </form>
             </li>
             {% if user.is_authenticated %}
-              <li><a href="#" onclick="M.toast({html: 'Product added'})"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
+              <li><a href="{% url 'shop:index'%}"><i class="large material-icons" style="color: black">apps</i></a></li>
+              <li><a href="{% url 'shop:get_cart'%}"><i class="large material-icons" style="color: black">add_shopping_cart</i></a></li>
               <li><a href="{% url 'profile' %}"><i class="large material-icons" style="color: black">account_circle</i></a></li>
               <li><a href="{% url 'logout' %}"><i class="large material-icons" style="color: black">directions_run</i></a></li>
             {% else %}

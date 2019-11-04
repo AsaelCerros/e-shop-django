@@ -18,7 +18,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf.urls import url
 from my_app import views
-from shop import views
+from shop import views as shop_views
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -30,6 +30,7 @@ urlpatterns = [
 	path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('', include('my_app.urls')),
     url(r'^shop/',include('shop.urls')),
+    #path('remove/', shop_views.remove_from_cart, name='remove_from_cart'),
     path('admin/', admin.site.urls),
 ]
 

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'my_app',
+    'cart',
     'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
     'materialize',

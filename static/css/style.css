@@ -2,6 +2,9 @@
     height: 500px; /* Your height here */
     overflow: hidden;
 }
+.card-cart {
+	height: 200px;
+}
 
 .card-image {
     height: 250px; /* Your height here */
