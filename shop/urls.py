@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^cart/$', views.get_cart, name='get_cart'),
     #remove from cart
     url(r'^remove/(?P<product_id>\w+)/$', views.remove_from_cart, name='remove_from_cart'),
+
+    url(r'^products/$',views.get_products,name='get_products')
  
 ]
